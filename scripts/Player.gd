@@ -25,4 +25,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	# screen wrap
+	if position.x <= -(get_viewport_rect().size.x / 2):
+		position.x = get_viewport_rect().size.x / 2
+	elif position.x >= (get_viewport_rect().size.x / 2):
+		position.x = -(get_viewport_rect().size.x / 2)
+
 	move_and_slide()
