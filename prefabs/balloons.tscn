@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1t7kuye3gggg"]
+
+[ext_resource type="Texture2D" uid="uid://c0u2fq44i4os0" path="res://icon.svg" id="1_e6okr"]
+[ext_resource type="Script" path="res://scripts/balloons.gd" id="1_ggu3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxypr"]
+size = Vector2(36, 18)
+
+[node name="Balloons" type="Area2D"]
+position = Vector2(0, -87)
+script = ExtResource("1_ggu3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_e6okr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_rxypr")

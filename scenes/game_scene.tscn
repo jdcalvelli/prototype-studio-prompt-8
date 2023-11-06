@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlmxwh0hiakys"]
+[gd_scene load_steps=7 format=3 uid="uid://dlmxwh0hiakys"]
 
 [ext_resource type="Texture2D" uid="uid://c0u2fq44i4os0" path="res://icon.svg" id="1_0myof"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_cq5d5"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_bo68p"]
+[ext_resource type="PackedScene" uid="uid://b1t7kuye3gggg" path="res://prefabs/balloons.tscn" id="4_j4nag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd8w3"]
 size = Vector2(133, 131)
@@ -22,6 +24,21 @@ texture = ExtResource("1_0myof")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_nd8w3")
+
+[node name="Balloons" parent="Player" instance=ExtResource("4_j4nag")]
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(145, 0)
+script = ExtResource("3_bo68p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+texture = ExtResource("1_0myof")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_nd8w3")
+
+[node name="Balloons" parent="Enemy" instance=ExtResource("4_j4nag")]
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(2.08165e-12, 200)
