@@ -1,53 +1,61 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlmxwh0hiakys"]
+[gd_scene load_steps=10 format=3 uid="uid://dlmxwh0hiakys"]
 
-[ext_resource type="Texture2D" uid="uid://c0u2fq44i4os0" path="res://icon.svg" id="1_0myof"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_cq5d5"]
+[ext_resource type="Texture2D" uid="uid://b06qwkolvwf3r" path="res://assets/images/Background.PNG" id="1_j6u4x"]
+[ext_resource type="Texture2D" uid="uid://btxsenhlwkusc" path="res://assets/images/player.PNG" id="3_aseqc"]
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="3_bo68p"]
 [ext_resource type="PackedScene" uid="uid://b1t7kuye3gggg" path="res://prefabs/balloons.tscn" id="4_j4nag"]
+[ext_resource type="Texture2D" uid="uid://i18uqt3c1f4j" path="res://assets/images/enemy.PNG" id="6_lunh0"]
+[ext_resource type="PackedScene" uid="uid://tku3xkfaa17b" path="res://prefabs/candle.tscn" id="7_poha1"]
+[ext_resource type="PackedScene" uid="uid://jeitvb2uk5jy" path="res://prefabs/platform.tscn" id="7_yc76j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd8w3"]
-size = Vector2(133, 131)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_813ff"]
-size = Vector2(324, 20)
+size = Vector2(99, 131)
 
 [node name="GameScene" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_j6u4x")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_cq5d5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_0myof")
+texture = ExtResource("3_aseqc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0.5, -0.5)
+position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_nd8w3")
 
 [node name="Balloons" parent="Player" instance=ExtResource("4_j4nag")]
+position = Vector2(2.08165e-12, -75)
 
 [node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(145, 0)
 script = ExtResource("3_bo68p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-texture = ExtResource("1_0myof")
+texture = ExtResource("6_lunh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_nd8w3")
 
 [node name="Balloons" parent="Enemy" instance=ExtResource("4_j4nag")]
+position = Vector2(2.08165e-12, -75)
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(2.08165e-12, 200)
+[node name="Candle" parent="." instance=ExtResource("7_poha1")]
+position = Vector2(-432, -43)
 
-[node name="Sprite2D" type="Sprite2D" parent="Platform"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(2.6, 0.159999)
-texture = ExtResource("1_0myof")
+[node name="Platform" parent="." instance=ExtResource("7_yc76j")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_813ff")
+[node name="Platform2" parent="." instance=ExtResource("7_yc76j")]
+position = Vector2(235, 200)
+
+[node name="Platform3" parent="." instance=ExtResource("7_yc76j")]
+position = Vector2(-240, 200)
+
+[node name="Platform4" parent="." instance=ExtResource("7_yc76j")]
+position = Vector2(-434, 15)
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tku3xkfaa17b"]
+
+[ext_resource type="Texture2D" uid="uid://cmbn288mpnscs" path="res://assets/images/candle.PNG" id="1_ebdoo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gppk"]
+size = Vector2(27, 85)
+
+[node name="Candle" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_0gppk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_ebdoo")

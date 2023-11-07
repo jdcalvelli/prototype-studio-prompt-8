@@ -1,19 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1t7kuye3gggg"]
+[gd_scene load_steps=7 format=3 uid="uid://b1t7kuye3gggg"]
 
-[ext_resource type="Texture2D" uid="uid://c0u2fq44i4os0" path="res://icon.svg" id="1_e6okr"]
 [ext_resource type="Script" path="res://scripts/balloons.gd" id="1_ggu3l"]
+[ext_resource type="Texture2D" uid="uid://ce2uuj0dq0ht2" path="res://assets/images/balloons-1.PNG" id="2_g54lk"]
+[ext_resource type="Texture2D" uid="uid://man6lkt1yq8d" path="res://assets/images/balloons-3.PNG" id="2_mjqpl"]
+[ext_resource type="Texture2D" uid="uid://b7uyiug7imxui" path="res://assets/images/balloons-2.PNG" id="3_vnq0o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hepl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mjqpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vnq0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g54lk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxypr"]
-size = Vector2(36, 18)
+size = Vector2(139, 32)
 
 [node name="Balloons" type="Area2D"]
 position = Vector2(0, -87)
 script = ExtResource("1_ggu3l")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_e6okr")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2hepl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(0.5, -29)
 shape = SubResource("RectangleShape2D_rxypr")
