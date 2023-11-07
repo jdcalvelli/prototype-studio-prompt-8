@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dengcjie0nggh"]
+
+[ext_resource type="PackedScene" uid="uid://jeitvb2uk5jy" path="res://prefabs/platform.tscn" id="1_bopui"]
+[ext_resource type="Script" path="res://scripts/candle.gd" id="2_7vnon"]
+[ext_resource type="Texture2D" uid="uid://cmbn288mpnscs" path="res://assets/images/candle.PNG" id="3_akvwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gppk"]
+size = Vector2(27, 85)
+
+[node name="candle_platform" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_bopui")]
+position = Vector2(2.08165e-12, 64)
+
+[node name="Candle" type="Area2D" parent="."]
+script = ExtResource("2_7vnon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Candle"]
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_0gppk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Candle"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("3_akvwd")

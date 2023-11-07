@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfqpjb4j21j68"]
+
+[ext_resource type="PackedScene" uid="uid://jeitvb2uk5jy" path="res://prefabs/platform.tscn" id="1_p1bw7"]
+[ext_resource type="Script" path="res://scripts/Flag.gd" id="2_708e3"]
+[ext_resource type="Texture2D" uid="uid://ccsidoqjxutih" path="res://assets/images/checkpoint.PNG" id="2_ugkhu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uygv7"]
+size = Vector2(102, 84)
+
+[node name="finish_platform" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_p1bw7")]
+position = Vector2(2.08165e-12, 64)
+
+[node name="Flag" type="Area2D" parent="."]
+position = Vector2(54, 0)
+script = ExtResource("2_708e3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flag"]
+position = Vector2(-16, -1)
+shape = SubResource("RectangleShape2D_uygv7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Flag"]
+texture = ExtResource("2_ugkhu")
