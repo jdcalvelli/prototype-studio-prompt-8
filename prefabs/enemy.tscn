@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0wqik3tv0yb7"]
+
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_n14x5"]
+[ext_resource type="Texture2D" uid="uid://i18uqt3c1f4j" path="res://assets/images/enemy.PNG" id="2_osvfb"]
+[ext_resource type="PackedScene" uid="uid://b1t7kuye3gggg" path="res://prefabs/balloons.tscn" id="3_64pbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nd8w3"]
+size = Vector2(99, 131)
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(145, 0)
+script = ExtResource("1_n14x5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_osvfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_nd8w3")
+
+[node name="Balloons" parent="." instance=ExtResource("3_64pbj")]
+position = Vector2(2.08165e-12, -75)
