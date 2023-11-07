@@ -8,7 +8,7 @@ func _ready():
 
 func _on_balloon_entered(body:Node2D):
 	numBalloons -= 1
-	print(numBalloons)
+	# print(numBalloons)
 	# change sprite to be one with less balloons
 	$AnimatedSprite2D.frame = numBalloons - 1
 	if numBalloons == 0:

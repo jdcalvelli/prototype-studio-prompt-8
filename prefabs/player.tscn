@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxvv53y02m1h6"]
+[gd_scene load_steps=9 format=3 uid="uid://dxvv53y02m1h6"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_us1pe"]
 [ext_resource type="Texture2D" uid="uid://btxsenhlwkusc" path="res://assets/images/player.PNG" id="2_1c1rl"]
 [ext_resource type="PackedScene" uid="uid://b1t7kuye3gggg" path="res://prefabs/balloons.tscn" id="3_dom84"]
+[ext_resource type="Texture2D" uid="uid://x6gbuv81r7r" path="res://assets/images/blocker-1.PNG" id="4_ylgqt"]
+[ext_resource type="Script" path="res://scripts/Obstructor.gd" id="5_f38r4"]
+[ext_resource type="Texture2D" uid="uid://cftr1i8wsdcya" path="res://assets/images/blocker-2.PNG" id="6_aixa2"]
+[ext_resource type="Texture2D" uid="uid://vqjxykba3uxn" path="res://assets/images/blocker-3.PNG" id="7_cmox3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd8w3"]
 size = Vector2(99, 131)
@@ -19,3 +23,15 @@ shape = SubResource("RectangleShape2D_nd8w3")
 
 [node name="Balloons" parent="." instance=ExtResource("3_dom84")]
 position = Vector2(2.08165e-12, -75)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Obstructor" type="Sprite2D" parent="Camera2D"]
+z_index = 1
+texture = ExtResource("4_ylgqt")
+script = ExtResource("5_f38r4")
+ObstructorSprites = Array[Texture2D]([ExtResource("4_ylgqt"), ExtResource("6_aixa2"), ExtResource("7_cmox3")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true

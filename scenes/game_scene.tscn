@@ -9,6 +9,7 @@
 [node name="GameScene" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1000, 1000)
 texture = ExtResource("1_j6u4x")
 
 [node name="Player" parent="." instance=ExtResource("2_dqse8")]
@@ -28,5 +29,3 @@ position = Vector2(-240, 200)
 
 [node name="Platform4" parent="." instance=ExtResource("7_yc76j")]
 position = Vector2(-434, 15)
-
-[node name="Camera2D" type="Camera2D" parent="."]

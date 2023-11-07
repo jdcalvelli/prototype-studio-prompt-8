@@ -7,6 +7,15 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var obstructionState : int = 0
+
+func _ready():
+	$Timer.timeout.connect(
+		func():
+			if obstructionState > 0:
+				obstructionState -= 1
+			print("timeout")
+	)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -25,13 +34,10 @@ func _physics_process(delta):
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-
-		# smoother screen wrap
-		if position.x <= -(get_viewport_rect().size.x / 2) - $Sprite2D.texture.get_width():
-			position.x = get_viewport_rect().size.x / 2
-		elif position.x >= (get_viewport_rect().size.x / 2) + $Sprite2D.texture.get_width():
-			position.x = -(get_viewport_rect().size.x / 2)
 	elif $Balloons.numBalloons <= 0:
 		$CollisionShape2D.disabled = true
+
+	# setting obstructors
+	$Camera2D/Obstructor.texture = $Camera2D/Obstructor.ObstructorSprites[obstructionState]
 
 	move_and_slide()
