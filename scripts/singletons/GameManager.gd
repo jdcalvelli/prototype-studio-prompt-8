@@ -12,6 +12,9 @@ var candlePlatformArray:Array[PackedScene]
 var normalPlatformArraySize:int = 16
 var candlePlatformArraySize:int = 3
 
+# sound
+var windSound:AudioStream = preload("res://assets/audio/664251__felixblume__wind-blowing-in-the-countryside-pushing-a-windmill-with-gust-of-wind-slight-insect-sounds-and-road-hum-recorded-in-the-field-in-dumas-texas.wav")
+
 func InitGame():
 	
 	for i in range(normalPlatformArraySize):
@@ -37,4 +40,12 @@ func SwitchScene(nextScene:String):
 			get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
 		"end":
 			get_tree().change_scene_to_file("res://scenes/end_scene.tscn")
+	
+# just for audio
+func _ready():
+	var Ambiance:AudioStreamPlayer = AudioStreamPlayer.new()
+	Ambiance.stream = windSound
+	Ambiance.volume_db = -16
+	Ambiance.autoplay = true
+	get_tree().root.call_deferred("add_child", Ambiance)
 	
