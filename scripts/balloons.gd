@@ -7,10 +7,11 @@ func _ready():
 	self.body_entered.connect(_on_balloon_entered)
 
 func _on_balloon_entered(body:Node2D):
-	numBalloons -= 1
-	# print(numBalloons)
-	# change sprite to be one with less balloons
-	$AnimatedSprite2D.frame = numBalloons - 1
+	if body.name == "Enemy" || body.name.contains("Platform"):
+		numBalloons -= 1
+		# print(numBalloons)
+		# change sprite to be one with less balloons
+		$AnimatedSprite2D.frame = numBalloons - 1
 	if numBalloons == 0:
 		visible = false
  

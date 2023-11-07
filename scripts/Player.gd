@@ -43,7 +43,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# scene swap based on velocity
-	if velocity.y > 5000 && $Balloons.numBalloons == 0:
+	if velocity.y > 3000 && $Balloons.numBalloons == 0:
 		GameManager.SwitchScene("end")
 	elif velocity.y > 5000:
 		GameManager.SwitchScene("end")
