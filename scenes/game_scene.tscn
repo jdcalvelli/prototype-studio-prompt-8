@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlmxwh0hiakys"]
+[gd_scene load_steps=7 format=3 uid="uid://dlmxwh0hiakys"]
 
 [ext_resource type="Texture2D" uid="uid://b06qwkolvwf3r" path="res://assets/images/Background.PNG" id="1_j6u4x"]
+[ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_jku7w"]
 [ext_resource type="PackedScene" uid="uid://dxvv53y02m1h6" path="res://prefabs/player.tscn" id="2_dqse8"]
 [ext_resource type="PackedScene" uid="uid://dengcjie0nggh" path="res://prefabs/candle_platform.tscn" id="4_mtj7p"]
 [ext_resource type="PackedScene" uid="uid://dfqpjb4j21j68" path="res://prefabs/finish_platform.tscn" id="5_pihut"]
 [ext_resource type="PackedScene" uid="uid://jeitvb2uk5jy" path="res://prefabs/platform.tscn" id="7_yc76j"]
 
 [node name="GameScene" type="Node2D"]
+script = ExtResource("1_jku7w")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(1000, 1000)
