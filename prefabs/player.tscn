@@ -28,10 +28,11 @@ position = Vector2(2.08165e-12, -75)
 
 [node name="Obstructor" type="Sprite2D" parent="Camera2D"]
 z_index = 1
+scale = Vector2(1.03, 1.04)
 texture = ExtResource("4_ylgqt")
 script = ExtResource("5_f38r4")
 ObstructorSprites = Array[Texture2D]([ExtResource("4_ylgqt"), ExtResource("6_aixa2"), ExtResource("7_cmox3")])
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 6.0
 autostart = true

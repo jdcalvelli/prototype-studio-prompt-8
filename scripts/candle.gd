@@ -10,4 +10,6 @@ func _on_body_entered(body:Node2D):
 		if body.obstructionState < 2:
 			body.obstructionState += 1
 			print(body.obstructionState)
+		# bring it up so that its post fog of war
+		z_index = 2
 

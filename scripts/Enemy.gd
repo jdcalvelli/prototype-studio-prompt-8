@@ -16,3 +16,6 @@ func _physics_process(delta):
 		$CollisionShape2D.disabled = true
 	
 	move_and_slide()
+	
+	if velocity.y > 3000 && $Balloons.numBalloons == 0:
+		queue_free()

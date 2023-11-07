@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-var obstructionState : int = 0
+var obstructionState : int = 2
 
 func _ready():
 	$Timer.timeout.connect(
@@ -41,3 +41,9 @@ func _physics_process(delta):
 	$Camera2D/Obstructor.texture = $Camera2D/Obstructor.ObstructorSprites[obstructionState]
 
 	move_and_slide()
+	
+	# scene swap based on velocity
+	if velocity.y > 5000 && $Balloons.numBalloons == 0:
+		GameManager.SwitchScene("end")
+	elif velocity.y > 5000:
+		GameManager.SwitchScene("end")
