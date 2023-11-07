@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlmxwh0hiakys"]
+[gd_scene load_steps=8 format=3 uid="uid://dlmxwh0hiakys"]
 
 [ext_resource type="Texture2D" uid="uid://b06qwkolvwf3r" path="res://assets/images/Background.PNG" id="1_j6u4x"]
 [ext_resource type="Script" path="res://scripts/game_scene.gd" id="1_jku7w"]
 [ext_resource type="PackedScene" uid="uid://dxvv53y02m1h6" path="res://prefabs/player.tscn" id="2_dqse8"]
+[ext_resource type="PackedScene" uid="uid://b0wqik3tv0yb7" path="res://prefabs/enemy.tscn" id="3_f1hlp"]
 [ext_resource type="PackedScene" uid="uid://dengcjie0nggh" path="res://prefabs/candle_platform.tscn" id="4_mtj7p"]
 [ext_resource type="PackedScene" uid="uid://dfqpjb4j21j68" path="res://prefabs/finish_platform.tscn" id="5_pihut"]
 [ext_resource type="PackedScene" uid="uid://jeitvb2uk5jy" path="res://prefabs/platform.tscn" id="7_yc76j"]
@@ -15,6 +16,9 @@ scale = Vector2(1000, 1000)
 texture = ExtResource("1_j6u4x")
 
 [node name="Player" parent="." instance=ExtResource("2_dqse8")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_f1hlp")]
+position = Vector2(1311, 0)
 
 [node name="Platform" parent="." instance=ExtResource("7_yc76j")]
 position = Vector2(8, 102)

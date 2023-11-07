@@ -23,6 +23,7 @@ shape = SubResource("RectangleShape2D_nd8w3")
 
 [node name="Balloons" parent="." instance=ExtResource("3_dom84")]
 position = Vector2(2.08165e-12, -75)
+adversaryName = "Enemy"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

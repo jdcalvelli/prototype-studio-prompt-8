@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0wqik3tv0yb7"]
+[gd_scene load_steps=6 format=3 uid="uid://b0wqik3tv0yb7"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_n14x5"]
 [ext_resource type="Texture2D" uid="uid://i18uqt3c1f4j" path="res://assets/images/enemy.PNG" id="2_osvfb"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd8w3"]
 size = Vector2(99, 131)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lscei"]
+radius = 157.003
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(145, 0)
@@ -20,3 +23,13 @@ shape = SubResource("RectangleShape2D_nd8w3")
 
 [node name="Balloons" parent="." instance=ExtResource("3_64pbj")]
 position = Vector2(2.08165e-12, -75)
+adversaryName = "Player"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="ChaseDefiner" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseDefiner"]
+shape = SubResource("CircleShape2D_lscei")
